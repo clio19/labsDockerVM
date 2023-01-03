@@ -1,0 +1,11 @@
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "centos/7"
+
+  config.vm.provision "shell", path: "provision.sh"
+end
+
+
+# SET VAGRANT_PREFER_SYSTEM_BIN=0
+
+# https://phoenixnap.com/kb/ssh-permission-denied-publickey sudo nano /etc/ssh/sshd_config

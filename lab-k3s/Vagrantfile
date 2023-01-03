@@ -1,0 +1,35 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = 'centos/8'
+  config.vm.hostname = 'manager'
+  config.vm.network "private_network", ip: "192.168.56.2"
+  config.vm.provider 'virtualbox' do |v| 
+    v.memory =2048
+  end
+  
+end
+
+# curl -sfL https://get.k3s.io | sh -s - --cluster-init --tls-san 192.168.56.2 --node-ip 192.168.56.2 --node-external-ip 192.168.56.2
+
+# Instalação do Kubens
+#   yum install git unzip telnet net-tools -y
+#   git clone https://github.com/ahmetb/kubectx /opt/kubectx
+#   sudo ln -s /opt/kubectx/kubectx /usr/local/bin/kubectx
+#   sudo ln -s /opt/kubectx/kubens /usr/local/bin/kubens
+#   1. Instalação do auto complete – bash-completion para kubectl
+#   1. yum install bash-completion –y
+#   2. echo 'source <(kubectl completion bash)' >>~/.bashrc
+#   3. kubectl completion bash >/etc/bash_completion.d/kubectl
+#   4. echo 'complete -F __start_kubectl k' >>~/.bashrc
+#   2. Configuracao do Alias k - profil
+
+# 1. Editar arquivo /etc/rancher/k3s/registries.yaml no master node
+
+# mirrors:
+#   docker.io:
+#     endpoint:
+#       - "http://mycustomreg.com:5000"
+# configs:
+#   "mycustomreg:5000":
+#     auth:
+#       username: xxxxxx # this is the registry username
+#       password: xxxxxx # this is the registry password
