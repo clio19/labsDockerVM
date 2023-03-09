@@ -14,5 +14,5 @@ Neste repositorio foi encontra-se criado:
 
 ## Git versions 
 
-git tag -a v1.0.0 -m "Nova tag BlaBla"
+git tag -a v1.0.0 -m "XXXX"
 git push -u origin main V1.0.0
